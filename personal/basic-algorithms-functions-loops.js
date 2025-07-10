@@ -18,7 +18,7 @@ printEvens10to40();
 // Write a function printMultiplesOf5() that logs all numbers from 5 to 100 that are divisible by 5.
 function printMultiplesOf5() {
     for (let i = 10; i <= 40; i++) {
-        if (i % 2 === 0) console.log(i);
+        if (i % 5 === 0) console.log(i);
     }
 }
 printMultiplesOf5();

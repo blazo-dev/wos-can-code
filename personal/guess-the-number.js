@@ -22,11 +22,11 @@ function askInput(message) {
 }
 
 async function guessNumber() {
-    const secretNumber = Math.ceil(Math.random() * 5);
+    const secretNumber = Math.ceil(Math.random() * 100);
 
     let userGuess = 0;
 
-    console.log("Guess the number!");
+    console.log(`Guess the number! 1 to 100`);
     do {
         userGuess = Number(await askInput("Enter your guess: "));
 
@@ -39,7 +39,7 @@ async function guessNumber() {
     } while (userGuess !== secretNumber);
 
     console.log(
-        `Congratulations! You guessed the number correctly! Your guess:${userGuess}`
+        `Congratulations! You guessed the number correctly! Your guess: ${userGuess}`
     );
 
     rl.close();
