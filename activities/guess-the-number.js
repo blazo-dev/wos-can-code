@@ -28,8 +28,6 @@ async function guessNumber() {
 
     console.log(`Guess the number! 1 to 100`);
     do {
-        userGuess = Number(await askInput("Enter your guess: "));
-
         if (Number.isNaN(userGuess)) {
             console.log("you guess must be a number");
         }

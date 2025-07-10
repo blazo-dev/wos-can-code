@@ -3,16 +3,18 @@
   Given an array, index, and additional value, ​insert
   the value into the array a​t the given index. Do this
   without using built-in array methods. Return the
-  array. Do this in-place (no temp arrays).
-  
+  array. Do this in-place (no temp arrays). 
+
   You can think of ​pushFront(arr, val)​ as equivalent to
   insertAt(arr, 0, val)​.
 */
 
 function insertAt(arr, idx, val) {
     for (let i = arr.length; i > idx; i--) {
+        console.table({ arr });
         arr[i] = arr[i - 1];
     }
+    console.table({ arr });
     arr[idx] = val;
     return arr;
 }
