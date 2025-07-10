@@ -15,7 +15,7 @@ async function runGame() {
     const userChoice = await askInput("Enter the number of your choice: ");
     const botChoice = getBotChoice();
 
-    console.log({ userChoice, botChoice });
+    printWinner(options[userChoice], options[botChoice], options);
 
     rl.close();
 }
@@ -46,8 +46,25 @@ function getBotChoice(maxOptions = 3) {
     return Math.ceil(Math.random() * maxOptions);
 }
 
-function getWinner(userChoice, botChoice, options) {
-    
+/**
+ *
+ * @param {string} uChoice
+ * @param {string} bChoice
+ * @param {Record<number, string>} opts
+ */
+function printWinner(uChoice, bChoice, opts) {
+    const userWon =
+        (uChoice === "Paper" && bChoice === "Rock") ||
+        (uChoice === "Scissors" && bChoice === "Paper") ||
+        (uChoice === "Rock" && bChoice === "Scissors");
+
+    if (!Object.values(opts).includes(uChoice)) {
+        console.log("Sorry, we don't have that option...");
+        return;
+    } else if (uChoice === bChoice) console.log("It's a tie! Try again!");
+    else if (userWon) console.log("You win!");
+    else console.log("You lost. Whomp whomp. :(");
+    console.log(`Your choice: ${uChoice}\nBot choice: ${bChoice}`);
 }
 
 runGame();
