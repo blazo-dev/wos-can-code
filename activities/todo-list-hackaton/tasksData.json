@@ -1,0 +1,25 @@
+{
+  "taskCounter": 5,
+  "tasks": [
+    {
+      "id": 1,
+      "desc": "Task 1",
+      "isCompleted": true
+    },
+    {
+      "id": 2,
+      "desc": "Task 2",
+      "isCompleted": false
+    },
+    {
+      "id": 3,
+      "desc": "Task 3",
+      "isCompleted": false
+    },
+    {
+      "id": 4,
+      "desc": "Task 4",
+      "isCompleted": false
+    }
+  ]
+}

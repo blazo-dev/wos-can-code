@@ -51,7 +51,7 @@ function handleWordStatus(secretWord) {
 
 function askInput(message) {
     return rl.question(message);
-}
+}   
 
 function validateInput(input) {
     return letters.includes(input) && input.length === 1;
