@@ -3,7 +3,6 @@ import { stdin as input, stdout as output } from "node:process";
 import { loadData, saveData } from "./persistence.js";
 
 const rl = createInterface({ input, output });
-const EMPTY_MESSAGE = "\n📭 No tasks yet — let's get started!";
 
 async function handleTasksState() {
     const tasksData = await loadData();
@@ -12,7 +11,7 @@ async function handleTasksState() {
 
     const displayTasks = () => {
         if (tasks.length === 0) {
-            console.log(EMPTY_MESSAGE);
+            console.log("\n📭 No tasks yet — let's get started!");
             return;
         }
 
@@ -29,20 +28,17 @@ async function handleTasksState() {
 
     const addTask = (taskDesc) => {
         tasks.push({ id: taskCounter++, desc: taskDesc, isCompleted: false });
-        console.log("\n✅ Task added successfully!");
     };
 
     const deleteTask = (taskId) => {
         const index = tasks.findIndex((task) => task.id === taskId);
         if (index !== -1) {
             tasks.splice(index, 1);
-            console.log("\n🗑️  Task deleted successfully!");
         }
     };
 
     const updateTask = (taskToUpdate, newDesc) => {
         taskToUpdate.desc = newDesc;
-        console.log("\n✏️  Task updated successfully!");
     };
 
     const persistData = () => {
@@ -123,6 +119,8 @@ async function startGame() {
                     }
 
                     addTask(taskDesc);
+                    console.log("\n✅ Task added successfully!");
+
                     continueAdding = await askInput(
                         "\n🔁 Add another? (Y/n): "
                     );
@@ -132,7 +130,7 @@ async function startGame() {
 
             case 3:
                 if (tasks.length === 0) {
-                    console.log(EMPTY_MESSAGE);
+                    console.log("\n📭 No tasks to complete!");
                     break;
                 }
 
@@ -151,6 +149,7 @@ async function startGame() {
 
                     taskToComplete.isCompleted = !taskToComplete.isCompleted;
                     console.log("\n✅ Task status toggled!");
+
                     continueCompleting = await askInput(
                         "\n🔁 Complete another? (Y/n): "
                     );
@@ -180,6 +179,8 @@ async function startGame() {
                     }
 
                     deleteTask(+taskId);
+
+                    console.log("\n🗑️  Task deleted successfully!");
                     continueDeleting = await askInput(
                         "\n🔁 Delete another? (Y/n): "
                     );
@@ -189,7 +190,7 @@ async function startGame() {
 
             case 5:
                 if (tasks.length === 0) {
-                    console.log(EMPTY_MESSAGE);
+                    console.log("\n📭 No tasks to update!");
                     break;
                 }
 
@@ -218,6 +219,8 @@ async function startGame() {
                     }
 
                     updateTask(taskToUpdate, newDesc);
+
+                    console.log("\n✏️  Task updated successfully!");
                     continueUpdating = await askInput(
                         "\n🔁 Update another? (Y/n): "
                     );
