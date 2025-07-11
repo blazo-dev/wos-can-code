@@ -1,6 +1,8 @@
 import { createInterface } from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 import { loadData, saveData } from "./persistence.js";
+import { menuOptions, MenuOption, NOT_FOUND_MESSAGE } from "./utils.js";
+const { ADD, COMPLETE, DELETE, EXIT, UPDATE, VIEW } = MenuOption;
 
 const rl = createInterface({ input, output });
 
@@ -60,6 +62,15 @@ function askInput(message) {
     return rl.question(message);
 }
 
+async function repeatAction(promptMessage, actionFn) {
+    let repeat = "n";
+    do {
+        await actionFn();
+        repeat = await askInput(`\n${promptMessage} (Y/n): `);
+        console.clear();
+    } while (repeat.toLowerCase() === "y");
+}
+
 function displayMenu(options) {
     console.log("\n📋 Menu\n");
     for (const option of options) {
@@ -84,14 +95,6 @@ async function startGame() {
         tasks,
     } = await handleTasksState();
     let leaveGame = false;
-    const menuOptions = [
-        "1️⃣: View tasks",
-        "2️⃣: Add task",
-        "3️⃣: Complete task",
-        "4️⃣: Delete task",
-        "5️⃣: Update task",
-        "6️⃣: Exit",
-    ];
 
     console.clear();
     console.log("📝 Welcome to the To-do List!");
@@ -104,67 +107,57 @@ async function startGame() {
         console.clear();
 
         switch (+userOption) {
-            case 1:
+            case VIEW:
                 displayTasks();
                 break;
 
-            case 2:
-                let continueAdding = "n";
-                do {
+            case ADD:
+                await repeatAction("🆕🔁 Add another?", async () => {
                     const taskDesc = await askInput("\n🆕 Enter a new task: ");
                     const validation = isValidText(taskDesc);
                     if (validation !== true) {
                         console.log(validation);
-                        break;
+                        return;
                     }
 
                     addTask(taskDesc);
                     console.log("\n✅ Task added successfully!");
+                });
 
-                    continueAdding = await askInput(
-                        "\n🔁 Add another? (Y/n): "
-                    );
-                    console.clear();
-                } while (continueAdding.toLowerCase() === "y");
                 break;
 
-            case 3:
+            case COMPLETE:
                 if (tasks.length === 0) {
                     console.log("\n📭 No tasks to complete!");
                     break;
                 }
 
-                let continueCompleting = "n";
-                do {
+                await repeatAction("✅🔁 Complete another?", async () => {
                     displayTasks();
-                    const taskId = await askInput("\n✅ Which task is done?: ");
+                    const taskId = await askInput(
+                        "\n✅ Which task would you like to complete?: "
+                    );
                     const taskToComplete = getTask(+taskId);
 
                     if (!taskToComplete) {
                         console.log(
-                            "⚠️ Task not found. Please choose a valid task number from the list."
+                            "\n⚠️ Task not found. Please choose a valid task number from the list."
                         );
-                        break;
+                        return;
                     }
 
                     taskToComplete.isCompleted = !taskToComplete.isCompleted;
                     console.log("\n✅ Task status toggled!");
-
-                    continueCompleting = await askInput(
-                        "\n🔁 Complete another? (Y/n): "
-                    );
-                    console.clear();
-                } while (continueCompleting.toLowerCase() === "y");
+                });
                 break;
 
-            case 4:
+            case DELETE:
                 if (tasks.length === 0) {
                     console.log("\n📭 No tasks to delete!");
                     break;
                 }
 
-                let continueDeleting = "n";
-                do {
+                await repeatAction("🗑️🔁 Delete another?", async () => {
                     displayTasks();
                     const taskId = await askInput(
                         "\n🗑️  Which task would you like to delete?: "
@@ -172,41 +165,31 @@ async function startGame() {
                     const taskToDelete = getTask(+taskId);
 
                     if (!taskToDelete) {
-                        console.log(
-                            "⚠️ Task not found. Please choose a valid task number from the list."
-                        );
-                        break;
+                        console.log(NOT_FOUND_MESSAGE);
+                        return;
                     }
 
                     deleteTask(+taskId);
-
                     console.log("\n🗑️  Task deleted successfully!");
-                    continueDeleting = await askInput(
-                        "\n🔁 Delete another? (Y/n): "
-                    );
-                    console.clear();
-                } while (continueDeleting.toLowerCase() === "y");
+                });
                 break;
 
-            case 5:
+            case UPDATE:
                 if (tasks.length === 0) {
                     console.log("\n📭 No tasks to update!");
                     break;
                 }
 
-                let continueUpdating = "n";
-                do {
+                await repeatAction("✏️🔁 Update another?", async () => {
                     displayTasks();
                     const taskId = await askInput(
-                        "\n🔃 Which task would you like to update?: "
+                        "\n✏️ Which task would you like to update?: "
                     );
                     const taskToUpdate = getTask(+taskId);
 
                     if (!taskToUpdate) {
-                        console.log(
-                            "⚠️ Task not found. Please choose a valid task number from the list."
-                        );
-                        break;
+                        console.log(NOT_FOUND_MESSAGE);
+                        return;
                     }
 
                     const newDesc = await askInput(
@@ -215,20 +198,16 @@ async function startGame() {
                     const validation = isValidText(newDesc);
                     if (validation !== true) {
                         console.log(validation);
-                        break;
+                        return;
                     }
 
                     updateTask(taskToUpdate, newDesc);
 
                     console.log("\n✏️  Task updated successfully!");
-                    continueUpdating = await askInput(
-                        "\n🔁 Update another? (Y/n): "
-                    );
-                    console.clear();
-                } while (continueUpdating.toLowerCase() === "y");
+                });
                 break;
 
-            case 6:
+            case EXIT:
                 console.log("\n👋 Goodbye! Stay organized!\n");
                 leaveGame = true;
                 break;

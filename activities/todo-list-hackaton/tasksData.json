@@ -1,5 +1,5 @@
 {
-  "taskCounter": 5,
+  "taskCounter": 12,
   "tasks": [
     {
       "id": 1,
@@ -9,16 +9,36 @@
     {
       "id": 2,
       "desc": "Task 2",
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "id": 3,
       "desc": "Task 3",
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "id": 4,
       "desc": "Task 4",
+      "isCompleted": true
+    },
+    {
+      "id": 5,
+      "desc": "Task 1",
+      "isCompleted": true
+    },
+    {
+      "id": 6,
+      "desc": "Task 20",
+      "isCompleted": false
+    },
+    {
+      "id": 8,
+      "desc": "Task DRY",
+      "isCompleted": false
+    },
+    {
+      "id": 9,
+      "desc": "Task Dry 2",
       "isCompleted": false
     }
   ]
