@@ -1,7 +1,6 @@
 const stringToRepeat1 = "Tacos";
 const numberToRepeat1 = 5;
-const repeatedExpected1 =
-    "TacosTacosTacosTacosTacos";
+const repeatedExpected1 = "TacosTacosTacosTacosTacos";
 
 const stringToRepeat2 = "margherita pizza";
 const numberToRepeat2 = 2;
