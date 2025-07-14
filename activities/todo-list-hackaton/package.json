@@ -1,16 +1,22 @@
 {
-  "name": "todo-list-hackaton",
-  "type": "module",
+  "name": "todo-list-node-cli",
   "version": "1.0.0",
+  "description": "📝 A command-line to-do list app built with Node.js for task management with local JSON persistence.",
+  "type": "module",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "todo",
+    "cli",
+    "task-manager",
+    "nodejs",
+    "json",
+    "terminal-app",
+    "hackathon"
+  ],
+  "author": "Bryan Lazo",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "chalk": "^5.4.1"
-  }
+  "dependencies": {}
 }

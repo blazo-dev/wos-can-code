@@ -1,88 +1,22 @@
-import { createInterface } from "node:readline/promises";
-import { stdin as input, stdout as output } from "node:process";
-import { loadData, saveData } from "./persistence.js";
-import { menuOptions, MenuOption, NOT_FOUND_MESSAGE } from "./utils.js";
-const { ADD, COMPLETE, DELETE, EXIT, UPDATE, VIEW } = MenuOption;
-
-const rl = createInterface({ input, output });
-
-async function handleTasksState() {
-    const tasksData = await loadData();
-    const tasks = tasksData.tasks || [];
-    let taskCounter = tasksData.taskCounter || 1;
-
-    const displayTasks = () => {
-        if (tasks.length === 0) {
-            console.log("\n📭 No tasks yet — let's get started!");
-            return;
-        }
-
-        for (const task of tasks) {
-            console.log(
-                `[${task.id}]: [${task.isCompleted ? "X" : " "}] ${task.desc}`
-            );
-        }
-    };
-
-    const getTask = (taskId) => {
-        return tasks.find((task) => task.id === taskId);
-    };
-
-    const addTask = (taskDesc) => {
-        tasks.push({ id: taskCounter++, desc: taskDesc, isCompleted: false });
-    };
-
-    const deleteTask = (taskId) => {
-        const index = tasks.findIndex((task) => task.id === taskId);
-        if (index !== -1) {
-            tasks.splice(index, 1);
-        }
-    };
-
-    const updateTask = (taskToUpdate, newDesc) => {
-        taskToUpdate.desc = newDesc;
-    };
-
-    const persistData = () => {
-        saveData({ taskCounter, tasks });
-    };
-
-    return {
-        addTask,
-        deleteTask,
-        updateTask,
-        getTask,
-        displayTasks,
-        persistData,
-        tasks,
-    };
-}
-
-function askInput(message) {
-    return rl.question(message);
-}
-
-async function repeatAction(promptMessage, actionFn) {
-    let repeat = "n";
-    do {
-        await actionFn();
-        repeat = await askInput(`\n${promptMessage} (Y/n): `);
-        console.clear();
-    } while (repeat.toLowerCase() === "y");
-}
-
-function displayMenu(options) {
-    console.log("\n📋 Menu\n");
-    for (const option of options) {
-        console.log(option);
-    }
-}
-
-function isValidText(text) {
-    if (text.trim().length === 0)
-        return "⚠️ Text cannot be empty. Please enter something!";
-    return true;
-}
+import {
+    menuOptions,
+    MenuOption,
+    NOT_FOUND_MESSAGE,
+    askInput,
+    repeatAction,
+    isValidText,
+    displayMenu,
+    rl,
+} from "./utils.js";
+import { handleTasksState } from "./store.js";
+const {
+    ADD_TASK,
+    COMPLETE_TASK,
+    DELETE_TASK,
+    UPDATE_TASK,
+    DISPLAY_TASKS,
+    EXIT,
+} = MenuOption;
 
 async function startGame() {
     const {
@@ -107,11 +41,11 @@ async function startGame() {
         console.clear();
 
         switch (+userOption) {
-            case VIEW:
+            case DISPLAY_TASKS:
                 displayTasks();
                 break;
 
-            case ADD:
+            case ADD_TASK:
                 await repeatAction("🆕🔁 Add another?", async () => {
                     const taskDesc = await askInput("\n🆕 Enter a new task: ");
                     const validation = isValidText(taskDesc);
@@ -126,7 +60,7 @@ async function startGame() {
 
                 break;
 
-            case COMPLETE:
+            case COMPLETE_TASK:
                 if (tasks.length === 0) {
                     console.log("\n📭 No tasks to complete!");
                     break;
@@ -151,7 +85,7 @@ async function startGame() {
                 });
                 break;
 
-            case DELETE:
+            case DELETE_TASK:
                 if (tasks.length === 0) {
                     console.log("\n📭 No tasks to delete!");
                     break;
@@ -174,7 +108,7 @@ async function startGame() {
                 });
                 break;
 
-            case UPDATE:
+            case UPDATE_TASK:
                 if (tasks.length === 0) {
                     console.log("\n📭 No tasks to update!");
                     break;
