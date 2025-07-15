@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Earworm, Inc.</title>
+</head>
+
+<body>
+    <main>
+        <h1>Contact Us</h1>
+        <h2>We'd love your feedback</h2>
+
+        <!-- Contact form with id and disables native browser validation (novalidate) -->
+        <form id="contact-form" novalidate>
+            <!--
+                Live region for announcing error messages to screen readers.
+                role="alert" and aria-live="assertive" ensure immediate notification.
+            -->
+            <div id="error-messages" role="alert" aria-live="assertive"></div>
+
+            <!-- Name input field container -->
+            <div>
+                <!-- Label linked to input by for/id -->
+                <label for="name">Name:</label>
+                <!-- Text input with autocomplete, aria-describedby links error message,
+                     aria-invalid indicates validity state -->
+                <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name-error"
+                    aria-invalid="false">
+                <!-- Error message span, initially hidden -->
+                <span id="name-error" class="error-message" hidden>Name is required.</span>
+            </div>
+
+            <!-- Email input field container -->
+            <div>
+                <!-- Label for email with a red asterisk (aria-hidden so screen readers ignore it) -->
+                <label for="email">Email: <span aria-hidden="true" style="color:red">*</span></label>
+                <!-- Email input with required attribute, autocomplete, and ARIA for errors -->
+                <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error"
+                    aria-invalid="false">
+                <!-- Error message for invalid/missing email, hidden initially -->
+                <span id="email-error" class="error-message" hidden>Valid email is required.</span>
+            </div>
+
+            <!-- Feedback textarea container -->
+            <div>
+                <!-- Label for textarea with required asterisk -->
+                <label for="feedback">Feedback: <span aria-hidden="true" style="color:red">*</span></label>
+                <!-- Textarea with rows specified, required, no autocomplete, ARIA -->
+                <textarea id="feedback" name="feedback" rows="5" required autocomplete="off"
+                    aria-describedby="feedback-error" aria-invalid="false"></textarea>
+                <!-- Error message span, hidden initially -->
+                <span id="feedback-error" class="error-message" hidden>Feedback cannot be empty.</span>
+            </div>
+
+            <!-- Radio button group with semantic fieldset and legend -->
+            <fieldset>
+                <legend>How did you hear about us?</legend>
+                <div>
+                    <input type="radio" id="social" name="referral" value="social">
+                    <label for="social">Social Media</label>
+                </div>
+                <div>
+                    <input type="radio" id="friend" name="referral" value="friend">
+                    <label for="friend">Friend</label>
+                </div>
+                <div>
+                    <input type="radio" id="advert" name="referral" value="advert">
+                    <label for="advert">Advertisement</label>
+                </div>
+            </fieldset>
+
+            <!-- Checkbox for newsletter signup -->
+            <div>
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Sign me up for the newsletter</label>
+            </div>
+
+            <!-- Submit button -->
+            <div>
+                <button type="submit">Send Feedback</button>
+            </div>
+        </form>
+
+        <aside>
+            <h2>Need to reach us directly?</h2>
+            <p>Email us at <a href="mailto:support@example.com">support@example.com</a></p>
+            <p>Call us at <a href="tel:+1234567890">(123) 456-7890</a></p>
+            <p>Visit our office between 9am - 5pm, monday through Friday</p>
+        </aside>
+    </main>
+
+    <footer>
+        &copy; 2025 Earworm, Inc. All right reserved.
+    </footer>
+
+    <script>
+        // Select the form element by its id
+        const form = document.getElementById('contact-form');
+        // Select the div where error messages will be announced
+        const errorRegion = document.getElementById('error-messages');
+
+        // Attach an event listener for the form submit event
+        form.addEventListener('submit', (e) => {
+            // Prevent the default form submission to handle validation first
+            e.preventDefault();
+
+            // Variable to track if there are validation errors
+            let hasError = false;
+
+            // Clear any previous error messages from the live region
+            errorRegion.textContent = '';
+
+            // Define an array of fields to validate with:
+            // - id: input element id
+            // - errorId: associated error message span id
+            // - validate: function returning true if valid, false otherwise
+            // - message: error message to show
+            const fields = [
+                {
+                    id: 'name',
+                    errorId: 'name-error',
+                    validate: (val) => val.trim() !== '',
+                    message: 'Name is required.'
+                },
+                {
+                    id: 'email',
+                    errorId: 'email-error',
+                    validate: (val) => /\S+@\S+\.\S+/.test(val), // simple email regex check
+                    message: 'Valid email is required.'
+                },
+                {
+                    id: 'feedback',
+                    errorId: 'feedback-error',
+                    validate: (val) => val.trim() !== '',
+                    message: 'Feedback cannot be empty.'
+                }
+            ];
+
+            // Loop through each field and validate
+            fields.forEach(({ id, errorId, validate, message }) => {
+                const input = document.getElementById(id);
+                const errorEl = document.getElementById(errorId);
+                // Check if the current field's value passes validation
+                const isValid = validate(input.value);
+
+                // Update aria-invalid attribute to reflect validity state (true if invalid)
+                input.setAttribute('aria-invalid', String(!isValid));
+                // Show or hide the error message span based on validity
+                errorEl.hidden = isValid;
+
+                // If invalid, append error message to live region and set error flag
+                if (!isValid) {
+                    errorRegion.textContent += message + ' ';
+                    hasError = true;
+                }
+            });
+
+            // If no errors, proceed with submission simulation
+            if (!hasError) {
+                alert('Form submitted!');
+                // Reset form inputs
+                form.reset();
+                // Hide all error messages
+                document.querySelectorAll('.error-message').forEach(span => span.hidden = true);
+                // Reset aria-invalid attributes to false
+                document.querySelectorAll('[aria-invalid]').forEach(el => el.setAttribute('aria-invalid', 'false'));
+            }
+        });
+    </script>
+</body>
+
+</html>

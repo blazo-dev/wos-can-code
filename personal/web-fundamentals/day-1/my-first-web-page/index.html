@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Web Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: #1b1d1f;
+            color: #fef7ee;
+            font-family: system-ui, sans-serif;
+            line-height: 1.5;
+        }
+
+        main {
+            display: grid;
+            gap: 1.5rem;
+            width: min(100% - 4rem, 800px);
+            margin: 0 auto;
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: #111315;
+            border-radius: 1rem;
+
+        }
+
+        header {
+            display: grid;
+            gap: 0.5rem;
+            background-color: #111315;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+
+        header h1 {
+            margin-block: 0;
+            color: #139bd7;
+            font-weight: 700;
+        }
+
+        header p {
+            margin-block: 0;
+            color: #6f757c;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        footer a,
+        nav a {
+            color: #f6c768;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        footer a {
+            color: #6f757c;
+
+        }
+
+        nav a:hover,
+        nav a:focus {
+            border-color: #f6c768;
+            color: #f6c768;
+
+        }
+
+        footer a:hover,
+        footer a:focus {
+            border-color: #6f757c;
+            color: #6f757c;
+        }
+
+        section#hobbies {
+            display: grid;
+            gap: 1rem;
+            background-color: #111315;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+
+        section#hobbies h2 {
+            margin-block: 0;
+        }
+
+        section#hobbies ul {
+            display: grid;
+            gap: .5rem;
+            list-style: none;
+            padding-left: 0;
+            margin-block: 0;
+        }
+
+        section#hobbies li {
+            font-size: 1.1rem;
+        }
+
+        figure {
+            display: grid;
+            gap: 0.5rem;
+            margin: 0;
+            text-align: center;
+            color: #6f757c;
+            font-style: italic;
+        }
+
+        figure img {
+            display: block;
+            max-width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+
+        figure figcaption {
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            color: #6f757c;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <nav>
+            <a href="#hobbies">Jump to My Hobbies</a>
+            <a href="https://www.youtube.com/@NatGeo/videos" target="_blank">
+                My favorite website
+            </a>
+        </nav>
+        <header>
+            <h1>Bryan Lazo</h1>
+            <p>
+                Java Developer with 3+ years of experience building scalable full-stack web apps. 💡 I started my
+                journey
+                during my tech studies and haven’t stopped coding since! Specialized in Java and Angular, I enjoy
+                turning
+                complex problems into clean, working solutions. Team player, bug squasher, and future software architect
+                in the
+                making. 🚀
+            </p>
+        </header>
+
+        <section id="hobbies">
+            <h2>My hobbies</h2>
+            <ul>
+                <li>🎮 Playing sandbox video games</li>
+                <li>💻 Coding cool side projects</li>
+                <li>🎵 Listening to Minecraft music</li>
+                <li>📚 Learning new tech & tools</li>
+                <li>☕ Enjoying a good cup of coffee</li>
+                <li>🦁 Watching wildlife documentaries</li>
+                <li>🏋️ Hitting the gym to lift weights and reset my brain</li>
+            </ul>
+
+            <figure>
+                <img src="./assets/fallen-angel.png" alt="The Fallen Angel (1847) a painting by Alexandre Cabanel" />
+                <figcaption>
+                    The Fallen Angel (1847), a painting by Alexandre Cabanel showing the Devil in sorrow after his fall
+                    from Heaven
+                </figcaption>
+            </figure>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <a href="https://www.linkedin.com/in/bryanlazodev/" target="_blank">&copy; 2025 Bryan Lazo</a>
+    </footer>
+</body>
+
+</html>

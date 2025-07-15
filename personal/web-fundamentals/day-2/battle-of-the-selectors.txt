@@ -1,0 +1,21 @@
+| Selector Type                       | Specificity Value |
+| ----------------------------------- | ----------------- |
+| ID                                  | 100               |
+| Class                               | 10                |
+| Attribute                           | 10                |
+| Pseudo-class                        | 10                |
+| Element (type)                      | 1                 |
+| Pseudo-element                      | 1                 |
+| Universal (`*`)                     | 0                 |
+| Combinator (` `, `>`, `+`, `~`)     | 0                 |
+
+
+| Selector                                                | Specificity Value |
+| --------------------------------------------------------| ----------------- |
+| div p                                                   | 2                 |
+| #main .highlight                                        | 110               |
+| ul > li a                                               | 3                 |
+| article h2 + p                                          | 3                 |
+| nav#site-nav ul li.active a                             | 114               |
+| section#hero .intro .cta-button                         | 121               |
+| body.homepage header nav > ul > li:first-child a        | 26                |
