@@ -1,0 +1,44 @@
+body {
+    font-family: system-ui, sans-serif;
+}
+
+.nav {
+    background-color: #2F504F;
+    padding: 1rem 2rem;
+}
+
+.nav__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__link {
+    font-weight: 500;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.nav__button {
+    display: grid;
+    place-content: center;
+    padding: .5rem 1rem;
+
+    font-weight: 500;
+
+    border: 0;
+    border-radius: .5rem;
+    background-color: #7FFFD4;
+    color: #2F504F;
+    cursor: pointer;
+}

@@ -1,0 +1,42 @@
+body {
+    font-family: system-ui, sans-serif;
+    background-color: whitesmoke;
+    color: #333;
+}
+
+.timeframe__title {
+    text-align: center;
+}
+
+.timeframe__button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.timeframe__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+
+    font-weight: 500;
+    font-size: 1.2rem;
+    border: 0;
+    border-radius: .5rem;
+    background-color: lightgrey;
+    color: inherit;
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+}
+
+.timeframe__button:hover {
+    transform: scale(1.1);
+}
+
+.timeframe__button--active {
+    font-weight: 700;
+    background-color: #5046E4;
+    color: whitesmoke;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/earworm-mascot.ico" type="image/x-icon">
+    <title>Earworm Products</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="site">
+
+    <!-- Site Header -->
+    <header class="site__header">
+        <img class="site__logo" src="./images/earworm-mascot.webp" alt="Earworm logo" />
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <h1 class="nav__title">earworm, inc.</h1>
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="#">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="#">about earworm</a></li>
+            <li class="nav__item"><a class="nav__link nav__link--active" href="#">products</a></li>
+            <li class="nav__item nav__item--cart">
+                <button class="nav__cart-button">
+                    <img class="nav__cart-icon" src="./images/cart-24.png" alt="Cart" />
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="site__main main-content">
+
+        <!-- Sidebar -->
+        <aside class="main-content__sidebar sidebar">
+
+            <!-- Support Section -->
+            <article class="sidebar__block support">
+                <header class="support__header">
+                    <h3 class="support__title">Support</h3>
+                    <ul class="support__list">
+                        <li class="support__item"><a class="support__link" href="">Setup Guide (PDF)</a></li>
+                        <li class="support__item"><a class="support__link" href="">Warranty & Registration</a></li>
+                        <li class="support__item"><a class="support__link" href="">Replacement Parts</a></li>
+                    </ul>
+                </header>
+                <main class="support__content">
+                    <h4 class="support__subtitle">Did You Know?</h4>
+                    <p class="support__text">The cardioid pickup pattern reduces noise from behind the mic — perfect for
+                        untreated rooms and noisy neighbors.</p>
+                </main>
+            </article>
+
+            <!-- Newsletter -->
+            <article class="sidebar__block newsletter">
+                <header class="newsletter__header">
+                    <h3 class="newsletter__title">Get the Earworm Insider</h3>
+                </header>
+                <main class="newsletter__content">
+                    <p class="newsletter__text">Studio hacks, gear guides, and behind-the-scenes exclusives - delivered
+                        monthly to your inbox.</p>
+                </main>
+                <footer class="newsletter__footer">
+                    <a class="newsletter__cta" href="#">Sign Up Free→</a>
+                </footer>
+            </article>
+
+        </aside>
+
+        <!-- Product Section -->
+        <section class="main-content__products products">
+
+            <!-- Main Product -->
+            <article class="products__item product">
+                <header class="product__header">
+                    <h2 class="product__title">Earworm Cardioid E-23 Microphone</h2>
+                    <figure class="product__image-wrapper">
+                        <img class="product__image" src="./images/cardioid-mic.webp"
+                            alt="Earworm Cardioid E-23 Microphone" />
+                        <figcaption class="product__caption">Earworm Cardioid E-23 Microphone</figcaption>
+                    </figure>
+                </header>
+                <main class="product__content">
+                    <h3 class="product__subtitle">Details</h3>
+                    <p class="product__description">
+                        Capture every nuance of your voice with the Earworm Cardioid E-23 Microphone — engineered for
+                        podcasters, vocalists, and audio obsessives alike. With its smooth frequency response and
+                        built-in pop protection, this mic delivers warmth and clarity straight out of the box.
+                    </p>
+                    <p class="product__description">
+                        Housed in a rugged matte shell and built to reduce background noise in untreated spaces, the
+                        E-23 is equally at home in professional studios and bedroom setups. Plug it in, press record,
+                        and hear your voice the way it was meant to be heard — crisp, confident, and unmistakably you.
+                    </p>
+                </main>
+                <footer class="product__footer">
+                    <div class="product__price">
+                        <span class="product__price-label">Price</span>
+                        <span class="product__price-value">$249.00</span>
+                    </div>
+                    <button class="product__button">Add to cart</button>
+                </footer>
+            </article>
+
+            <!-- Related Products -->
+            <section class="products__related related-products">
+                <header class="related-products__header">
+                    <h3 class="related-products__title">
+                        Related products
+                    </h3>
+                </header>
+                <hr class="separator">
+                <main class="related-products__list">
+
+                    <article class="related-products__item">
+                        <img class="related-products__image" src="./images/pop-filter-thumb.webp"
+                            alt="Earworm Pop Filter Image" />
+                        <main class="related-products__info">
+                            <h5 class="related-products__name">Earworm Pop Filter</h5>
+                            <footer class="related-products__footer">
+                                <span class="related-products__price">$29.99</span>
+                                <a class="related-products__link" href="#">View</a>
+                            </footer>
+                        </main>
+                    </article>
+
+                    <article class="related-products__item">
+                        <img class="related-products__image" src="./images/xlr-cable-thumb.webp"
+                            alt="Earworm XLR Cable" />
+                        <main class="related-products__info">
+                            <h5 class="related-products__name">Earworm XLR Cable</h5>
+                            <footer class="related-products__footer">
+                                <span class="related-products__price">$19.99</span>
+                                <a class="related-products__link" href="#">View</a>
+                            </footer>
+                        </main>
+                    </article>
+
+                    <article class="related-products__item">
+                        <img class="related-products__image" src="./images/shock-mount-thumb.webp"
+                            alt="Earworm Shock Mount" />
+                        <main class="related-products__info">
+                            <h5 class="related-products__name">Earworm Shock Mount</h5>
+                            <footer class="related-products__footer">
+                                <span class="related-products__price">$39.99</span>
+                                <a class="related-products__link" href="#">View</a>
+                            </footer>
+                        </main>
+                    </article>
+
+                </main>
+            </section>
+
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="site__footer footer">
+        <span class="footer__copy">&copy; 2025 Earworm, Inc. All rights reserved.</span>
+        <ul class="footer__list">
+            <li class="footer__item"><a class="footer__link" href="#">Privacy</a></li>
+            <li class="footer__item"><a class="footer__link" href="#">Terms</a></li>
+            <li class="footer__item"><a class="footer__link" href="#">Contact</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
