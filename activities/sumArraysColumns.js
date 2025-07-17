@@ -18,30 +18,18 @@ const expected = [30, 40, 50, 60];
  * @returns {Array<number>} The column sums.
  */
 function sumArrColumns(nums1, nums2) {
-  const resultArray = [];
-  for(let i = 0; i < nums1.length; i++) {
-    resultArray.push(nums1[i] + nums2[i]);
-  }
-  
-  return resultArray;
+    const resultArray = [];
+    for (let i = 0; i < nums1.length; i++) {
+        resultArray.push(nums1[i] + nums2[i]);
+    }
+
+    return resultArray;
 }
 
-
-function sumArrColumnsMap(nums1, nums2) {  
-  return nums1.map((value, idx)=> value + nums[idx]);
+function sumArrColumnsMap(nums1, nums2) {
+    return nums1.map((value, idx) => value + nums2[idx]);
 }
-
 
 // Tests
 const result = sumArrColumns(numbersA, numbersB);
-console.log(result, 'should equal', expected);
-
-
-const resultMap = sumArrColumnsMap(numbersA, numbersB);
-console.log({resultMap}, 'should equal', {expected});
-
-
-
-
-
-
+console.log(result, "should equal", expected);
