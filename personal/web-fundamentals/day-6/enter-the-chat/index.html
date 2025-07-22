@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter the Chat</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="grid-layout">
+    <main class="main-content">
+        <section class="realm-container">
+            <h1 class="realm-title">Enter the Realm</h1>
+            <p class="realm-subtitle">Choose your destiny, brave adventurer</p>
+
+            <form id="real-form" class="form" novalidate autocomplete="off">
+                <div class="form-group">
+                    <label for="character-name" class="form-label">Character Name <span class="form-required"
+                            aria-hidden="true">*</span></label>
+                    <input type="text" id="character-name" class="form-input" name="characterName"
+                        placeholder="Enter your name..." maxlength="20" aria-describedby="form-alert"
+                        aria-invalid="false">
+                </div>
+
+                <div class="form-group">
+                    <label for="character-class" class="form-label">Choose Your Class <span class="form-required"
+                            aria-hidden="true">*</span></label>
+                    <select id="character-class" class="form-select" aria-describedby="form-alert" name="characterClass"
+                        aria-invalid="false">
+                        <option class="form-option" value="">Select your class...</option>
+                        <option class="form-option" value="Barbarian">Barbarian - Master of Strength</option>
+                        <option class="form-option" value="Mage">Mage - Wielder of Arcane Arts</option>
+                        <option class="form-option" value="Rogue">Rogue - Shadow Walker</option>
+                        <option class="form-option" value="Paladin">Paladin - Holy Warrior</option>
+                        <option class="form-option" value="Ranger">Ranger - Forest Guardian</option>
+                        <option class="form-option" value="Warlock">Warlock - Dark Pact Bearer</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="form-button" class="form-button">
+                    Enter the Realm
+                </button>
+            </form>
+
+            <div id="form-alert" class="alert" aria-live="assertive">
+                Please, complete all required fields.
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

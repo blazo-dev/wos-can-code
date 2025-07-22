@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Boring Website</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page">
+
+    <header class="header" onmouseenter="handleHeaderEnter(this)" onmouseleave="handleHeaderLeave(this)">
+        <h1 class="header__title">My Boring Website</h1>
+    </header>
+
+
+    <div class="layout">
+        <main class="main" onclick="changeMainBackground(this)">
+            <h2 class="main__heading" onclick="changeMainHeading(this)">The Sky Was Blue.</h2>
+            <p class="main__paragraph" onclick="changeMainParagraph(this)">
+                Clouds were present, but not particularly noteworthy. The sun was shining. The ground was beneath.
+                People were generally doing what they were doing. One could observe various objects and individuals,
+                each with their own features and locations. The air was comprised of typical gases, and gravity
+                continued to exert its influence.
+            </p>
+            <div class="main__emojis">
+                <span class="main__emoji" onmouseenter="emojiEnter(this)" onmouseleave="emojiLeave(this)">😐</span>
+                <span class="main__emoji" onmouseenter="emojiEnter(this)" onmouseleave="emojiLeave(this)">😐</span>
+                <span class="main__emoji" onmouseenter="emojiEnter(this)" onmouseleave="emojiLeave(this)">😐</span>
+            </div>
+        </main>
+
+        <aside class="aside">
+            <h3 class="aside__heading" onmouseenter="changeAsideHeadingText(this)">Boring Fact</h3>
+            <p class="aside__paragraph" onmouseenter="changeAsideParagraphText(this)">
+                The standard width of a double-spaced line on U.S. letter-sized paper is about 0.34 inches.
+            </p>
+            <button class="aside__button" onclick="hideButton(this)">Put me out of my misery</button>
+        </aside>
+    </div>
+
+    <script src="./script.js" defer></script>
+</body>
+
+</html>
