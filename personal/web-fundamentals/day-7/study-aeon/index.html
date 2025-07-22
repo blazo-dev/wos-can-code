@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Aeon</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Orbitron:wght@400..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="page grid-layout">
+
+    <header class="page-header grid-layout b-bottom">
+        <div class="header-wrapper flex-container">
+            <h1 class="header-title">Studio Aeon</h1>
+            <nav>
+                <ul class="nav-list flex-container">
+                    <li class="nav-list-item"><a href="#" class="nav-list-link">Home</a></li>
+                    <li class="nav-list-item"><a href="#" class="nav-list-link">Games</a></li>
+                    <li class="nav-list-item"><a href="#" class="nav-list-link">Leaderboard</a></li>
+                    <li class="nav-list-item"><a href="#" class="nav-list-link">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-main flex-container">
+        <section class="main-section">
+
+            <div class="section-article b-bottom">
+                <h2 class="article-title">Zhara Vex is Coming</h2>
+                <img src="/assets/images/zhara-vex.webp" alt="Portrait of Zhara Vex" class="article-image">
+                <div class="article-footer">
+                    <span class="footer-text">Meet <span class="footer-highlight">Neon Shard</span>'s newest here</span>
+                    <a href="#" class="footer-link">Read more →</a>
+                </div>
+            </div>
+
+            <section class="main-topmains" aria-labelledby="top-main-title">
+                <h3 id="top-main-title" class="topmains-title">Top mains</h3>
+                <div class="topmains-list flex-container" id="topmains-list">
+                    <!-- Elements are being added by javascript -->
+                </div>
+            </section>
+
+        </section>
+
+        <aside class="main-aside">
+
+            <article class="aside-article aside-article--promo b-bottom">
+                <h3 class="promo-title">Level Up Your Life</h3>
+                <p class="promo-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quisquam
+                    dicta iure in.</p>
+                <button class="promo-button" id="promo-button">Join Now</button>
+            </article>
+
+            <article class="aside-article aside-article--form b-bottom">
+                <h3 class="form-title">Preorder Gridfall</h3>
+                <form class="preorder-form">
+                    <label for="email" class="form-label">Enter your email to preorder your next obsession.</label>
+                    <div class="form-wrapper flex-container">
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required
+                            class="form-input" autocomplete="email">
+                        <button type="button" class="form-button" aria-label="Preorder Gridfall with provided email"
+                            id="email-button">Preorder</button>
+                    </div>
+                </form>
+            </article>
+
+        </aside>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
