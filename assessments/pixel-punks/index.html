@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Punks</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="grid-layout">
+    <header class="site-header grid-layout">
+        <div class="header-wrapper flex-container justify-between gap-md">
+            <h1 class="header-title"><span class="text-accent">Pixel</span>Punks</h1>
+            <div class="header-actions flex-container gap-md">
+                <form class=" search-bar flex-container" id="search-form">
+                    <input id="search-input" class="search-input" type="text">
+                    <button id="search-button" type="submit" class="search-button">Search</button>
+                </form>
+                <div class="flex-container gap-sm">
+                    <img class="cart-icon" src="./assets/images/cart.webp" alt="Shopping cart icon" />
+                    <span id="cart-counter">0</span>
+                </div>
+            </div>
+        </div>
+        <nav class="nav grid-layout">
+            <ul class="nav-list flex-container gap-sm">
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">Games</a></li>
+                <li><a class="nav-link" href="#">Account</a></li>
+                <li><a class="nav-link" href="#">Support</a></li>
+                <li><a class="nav-link" href="#">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="site-main grid-column gap-md">
+        <section class="hero">
+            <h1 class="hero-title">Punk Picks of the Week</h1>
+            <div class="hero-slider flex-container gap-md">
+                <button class="hero-arrow hero-arrow--left desk-arrow">
+                    <img class="arrow-image" src="./assets/images/chevron-left.webp" alt="Left arrow icon" />
+                </button>
+                <img class="hero-image" id="hero-image" src="./assets/images/blasterrex.webp"
+                    alt="Portrait of BlasterRex Game" />
+                <button class="hero-arrow hero-arrow--right desk-arrow">
+                    <img class="arrow-image" src="./assets/images/chevron-right.webp" alt="Right arrow icon" />
+                </button>
+            </div>
+            <div class="hero-actions flex-container gap-md">
+                <button class="hero-arrow hero-arrow--left">
+                    <img class="arrow-image" src="./assets/images/chevron-left.webp" alt="Left arrow icon" />
+                </button>
+                <button class="hero-arrow hero-arrow--right">
+                    <img class="arrow-image" src="./assets/images/chevron-right.webp" alt="Right arrow icon" />
+                </button>
+            </div>
+        </section>
+        <section class="games grid-column">
+            <h2 class="games-title">Top of the Punk Stack</h2>
+            <div class="games-list flex-container gap-md">
+                <article class="card grid-column">
+                    <img class="card-image" src="./assets/images/chronoclash-turbo.webp"
+                        alt="Portrait of Chronoclash Turbo" />
+                    <div class="card-content grid-column">
+                        <h3 class="card-title">Chronoclash Turbo</h3>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo totam exercitationem quisquam
+                            tempora vitae ad doloremque ex perferendis ut consequatur quaerat harum dicta ipsa, sequi
+                            est. Atque iure cum, totam dolor enim molestiae. Similique, ab?
+                        </p>
+                    </div>
+                    <footer class="card-footer flex-container justify-between gap-md">
+                        <span class="card-price">$10.99</span>
+                        <button class="card-button button-add-cart">Add to cart</button>
+                    </footer>
+                </article>
+                <article class="card grid-column">
+                    <img class="card-image" src="./assets/images/hyper-flux.webp" alt="Portrait of Hyper Flux" />
+                    <div class="card-content grid-column">
+                        <h3 class="card-title">Hyper Flux</h3>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo totam exercitationem quisquam
+                            tempora vitae ad doloremque ex perferendis ut consequatur quaerat harum dicta ipsa, sequi
+                            est. Atque iure cum, totam dolor enim molestiae. Similique, ab?
+                        </p>
+                    </div>
+                    <footer class="card-footer flex-container justify-between gap-md">
+                        <span class="card-price">$12.99</span>
+                        <button class="card-button button-add-cart">Add to cart</button>
+                    </footer>
+                </article>
+                <article class="card grid-column">
+                    <img class="card-image" src="./assets/images/starpunch-7.webp" alt="Portrait of Starpunch 7" />
+                    <div class="card-content grid-column">
+                        <h3 class="card-title">Starpunch 7</h3>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo totam exercitationem quisquam
+                            tempora vitae ad doloremque ex perferendis ut consequatur quaerat harum dicta ipsa, sequi
+                            est. Atque iure cum, totam dolor enim molestiae. Similique, ab?
+                        </p>
+                    </div>
+                    <footer class="card-footer flex-container justify-between gap-md">
+                        <span class="card-price">$8.99</span>
+                        <button class="card-button button-add-cart">Add to cart</button>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
